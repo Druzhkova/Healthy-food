@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Green food</title>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <div class="wrapper">
+    <header class="header" id="navbar">
+      <a href="#" class="header_logo">Good<span>Foods</span></a>
+      <ul>
+        <li><a href="#" class="active">Home</a></li>
+        <li><a href="#">Menu</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+      <span class="icon-menu" onclick="menuToggle();"></span>
+    </header>
+    <main class="main">
+      <div class="main_banner-text">
+        <div class="active">
+          <h2>EAT Healthy<br>
+              Stay Healthy</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
+          <a href="#">Read More</a>
+        </div>
+        <div>
+          <h2>Eat Your<br>
+            Veggies</h2>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab corporis repellat voluptatibus at porro reiciendis, odit illum, aut doloremque dolorum totam, itaque vitae natus ut deserunt possimus quas beatae aspernatur?</p>
+          <a href="#">Read More</a>
+        </div>
+        <div>
+          <h2>Good Food<br>
+              Good Mood</h2>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem qui, obcaecati corporis nesciunt ducimus quaerat beatae doloremque nulla, deserunt ullam veritatis aliquid, animi ratione nihil sit quae. Ad, illum quidem!</p>
+          <a href="#">Read More</a>
+        </div>
+      </div>
+      <div class="main_banner-img" id='slideshow'>
+        <img src="./img/vegetable-salad.png" class="active">
+        <img src="./img/sliced-tomato-and-avocado.jpg">
+        <img src="./img/appetizer.jpg">
+      </div>
+    </main>
+    <div class="icons">
+      <ul class="icons_social">
+        <li><a href="#"><img src="./img/facebook.png"></a></li>
+        <li><a href="#"><img src="./img/twitter.png"></a></li>
+        <li><a href="#"><img src="./img/instagram.png"></a></li>
+      </ul>
+      <ul class="icons_controls">
+        <li><a><img src="./img/left.png" onclick="prevSlide();"></a></li>
+        <li><a><img src="./img/right.png" onclick="nextSlide();"></a></li>
+      </ul>
+    </div>
+  </div>
+  <script type="text/javascript">
+    let slideshow = document.getElementById('slideshow');
+    let slides = slideshow.getElementsByTagName('img');
+    let index = 0;
+
+    function nextSlide(){
+      slides[index].classList.remove('active');
+      index = (index + 1) % slides.length;
+      slides[index].classList.add('active');
+    }
+    function prevSlide(){
+      slides[index].classList.remove('active');
+      index = (index - 1 + slides.length) % slides.length;
+      slides[index].classList.add('active');
+    }
+    function menuToggle() {
+      let nav = document.getElementById('navbar')
+      nav.classList.toggle('active')
+    }
+  </script>
+</body>
+</html>
